@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Container, Card } from 'react-bootstrap';
+import Name from './Name';
+import Price from './Price';
+import Description from './Description';
+import Image from './Image';
 
-function App() {
+const App = () => {
+  const firstName = "John"; // Replace with your first name or leave empty
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="mt-5">
+      <Card>
+        <Card.Body>
+          <Image />
+          <Name />
+          <Price />
+          <Description />
+        </Card.Body>
+      </Card>
+      <div className="mt-3">
+        <h3>
+          Hello, {firstName ? firstName : 'there!'}
+        </h3>
+        {firstName && (
+          <img
+            src="https://via.placeholder.com/100" //  image URL
+            alt="Personal"
+            style={{ width: '100px', borderRadius: '50%' }}
+          />
+        )}
+      </div>
+    </Container>
   );
-}
+};
 
 export default App;
+
